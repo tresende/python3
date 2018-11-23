@@ -1,15 +1,9 @@
-import forca
-import adivinhacao
+# forca.py
 
-print("*********************************")
-print("*******Escolha o seu jogo!*******")
-print("*********************************")
+def jogar():
 
-print("(1) Forca (2) Adivinhação")
+    print("*********************************")
+    print("***Bem vindo ao jogo da Forca!***")
+    print("*********************************")
 
-jogo = int(input("Qual jogo? "))
-
-if (jogo == 1):
-    print("Jogando forca")
-elif (jogo == 2):
-    print("Jogando adivinhação")
+    print("Fim do jogo")
