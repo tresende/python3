@@ -51,6 +51,10 @@ def jogar():
             elif(menor):
                 print("Você errou! O seu chute foi menor que o número secreto.")
 
+
 print("*********************************")
 print("Fim do jogo")
 print("*********************************")
+
+if (__name__ == "__main__"):
+    jogar()
