@@ -1,11 +1,14 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
+import random
+
 print("*********************************\n\n")
 print("Bem vindo ao jogo de Adivinhação!")
 print("*********************************")
 
-numero_secreto = 43
+numero_secreto = round(random.random() * 100)
+print(numero_secreto)
 total_de_tentativas = 3
 rodada = 1
 
@@ -19,7 +22,7 @@ for rodada in range(1, total_de_tentativas + 1):
     maior = chute > numero_secreto
     menor = chute < numero_secreto
 
-    if(chute < 1):
+    if(chute < 1 or chute > 100):
         print("Você deve digtar um numero entre 1 e 100!")
         continue
 
