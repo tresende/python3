@@ -32,6 +32,38 @@ def inicializa_letras_acertadas(palavra):
     return ["_" for letra in palavra]
 
 
+def carrega_palavra_secreta():
+    arquivo = open("palavras.txt", "r")
+    palavras = []
+    for linha in arquivo:
+        linha = linha.strip()
+        palavras.append(linha)
+    arquivo.close()
+    numero = random.randrange(0, len(palavras))
+    palavra_secreta = palavras[numero].upper()
+    return palavra_secreta
+
+
+def imprime_mensagem_abertura():
+    print("*********************************")
+    print("***Bem vindo ao jogo da Forca!***")
+    print("*********************************")
+
+
+def pede_chute():
+    chute = input("Qual a letra? ")
+    chute = chute.strip().upper()
+    return chute
+
+
+def marca_chute_correto(chute, palavra_secreta, letras_acertadas):
+    index = 0
+    for letra in palavra_secreta:
+        if (chute == letra):
+            letras_acertadas[index] = letra
+        index += 1
+
+
 def imprime_mensagem_vencedor():
     print("Parabéns, você ganhou!")
     print("       ___________      ")
@@ -116,38 +148,6 @@ def desenha_forca(erros):
     print(" |            ")
     print("_|___         ")
     print()
-
-
-def carrega_palavra_secreta():
-    arquivo = open("palavras.txt", "r")
-    palavras = []
-    for linha in arquivo:
-        linha = linha.strip()
-        palavras.append(linha)
-    arquivo.close()
-    numero = random.randrange(0, len(palavras))
-    palavra_secreta = palavras[numero].upper()
-    return palavra_secreta
-
-
-def imprime_mensagem_abertura():
-    print("*********************************")
-    print("***Bem vindo ao jogo da Forca!***")
-    print("*********************************")
-
-
-def pede_chute():
-    chute = input("Qual a letra? ")
-    chute = chute.strip().upper()
-    return chute
-
-
-def marca_chute_correto(chute, palavra_secreta, letras_acertadas):
-    index = 0
-    for letra in palavra_secreta:
-        if (chute == letra):
-            letras_acertadas[index] = letra
-        index += 1
 
 
 if (__name__ == "__main__"):
