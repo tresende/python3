@@ -14,16 +14,33 @@ class Conta:
     def saca(self, valor):
         self.__saldo -= valor
 
+    def transfere(self, valor, destino):
+        self.saca(valor)
+        destino.deposita(valor)
+
+    @property
+    def saldo(self):
+        return self.__saldo
+
+    @property
+    def titular(self):
+        return self.__titular
+
+    @property
+    def limite(self):
+        return self.__limite
+
+    @limite.setter
+    def limite(self, limite):
+        self.__limite = limite
+
 
 if (__name__ == "__main__"):
-    conta = Conta('037112', 'Thiago Resende', 200, 300)
+    conta = Conta('037112', 'Thiago', 200, 300)
+    conta2 = Conta('912832', 'Camila', 400, 300)
+    conta.limite = 1000.0
+    print(conta.saldo)
+    conta2.transfere(10, conta)
 
-    conta2 = conta
-    conta2.__saldo = 99999999
-    conta2 = None
-    
     conta.extrato()
-    conta.deposita(15.0)
-    conta.extrato()
-    conta.saca(15.0)
-    conta.extrato()
+    conta2.extrato()
